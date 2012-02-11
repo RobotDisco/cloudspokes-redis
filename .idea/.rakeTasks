@@ -4,4 +4,4 @@ You are allowed to:
 1. Remove rake task
 2. Add existing rake tasks
 To add existing rake tasks automatically delete this file and reload the project.
---><RakeGroup description="" fullCmd="" taksId="rake" /></Settings>
+--><RakeGroup description="" fullCmd="" taksId="rake"><RakeTask description="Run Cucumber features" fullCmd="features" taksId="features" /><RakeTask description="Run RSpec code examples" fullCmd="spec" taksId="spec" /><RakeGroup description="" fullCmd="" taksId="vmc"><RakeTask description="update cloud foundry deployment" fullCmd="vmc:update" taksId="update" /></RakeGroup></RakeGroup></Settings>

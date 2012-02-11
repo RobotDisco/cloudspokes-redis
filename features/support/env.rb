@@ -8,14 +8,14 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 
-Capybara.app = CucumberRedisApp
+Capybara.app = CloudspokesRedisApp
 
-class CucumberRedisAppWorld
+class CloudspokesRedisAppWorld
   include Capybara::DSL
   include RSpec::Expectations
   include RSpec::Matchers
 end
 
 World do
-  CucumberRedisAppWorld.new
+  CloudspokesRedisAppWorld.new
 end
