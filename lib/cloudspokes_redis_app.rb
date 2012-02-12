@@ -3,6 +3,7 @@ require 'sinatra/base'
 
 require 'uri'
 require 'net/http'
+require 'json'
 
 class CloudspokesRedisApp < Sinatra::Base
   get '/' do
@@ -11,7 +12,8 @@ class CloudspokesRedisApp < Sinatra::Base
 
   get '/update' do
     uri = URI.parse 'http://api.kivaws.org/v1/loans/newest.json'
-    req = Net::HTTP.get(uri)
+    kiva_json = Net::HTTP.get(uri)
+    kiva = JSON.parse kiva_json
 
     'I updated your Kiva info!!!'
   end

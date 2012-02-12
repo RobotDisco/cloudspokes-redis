@@ -30,6 +30,7 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    redis (2.2.2)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -59,5 +60,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   cucumber
+  json
+  redis
   rspec
   sinatra
