@@ -24,9 +24,11 @@ describe "CloudspokesRedisApp" do
     Net::HTTP.should_receive(:get).with(URI.parse('http://api.kivaws.org/v1/loans/newest.json')) do
       test_json
     end
+    redis = double("Redis instance")
+    Redis.should_receive(:new).and_return redis
 
     num_new_loans = test_feed['loans'].length
-    Redis.should_receive(:set).exactly(num_new_loans).times
+    redis.should_receive(:set).exactly(num_new_loans).times
     
     get '/update'
   end
