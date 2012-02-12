@@ -5,13 +5,8 @@ require 'redis'
 
 describe "CloudspokesRedisApp" do
 
-  it "should request a feed from Kiva" do
+  it "should request and parse a feed from Kiva" do
     Net::HTTP.should_receive(:get).with(URI.parse('http://api.kivaws.org/v1/loans/newest.json'))
-
-    get '/update'
-  end
-
-  it "should parse Kiva's JSON response" do
     JSON.should_receive(:parse)
 
     get '/update'
