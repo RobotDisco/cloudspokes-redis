@@ -25,7 +25,7 @@ class CloudspokesRedisApp < Sinatra::Base
       redis.set(loan['id'], loan_json)
     end
 
-    'I updated your Kiva info!!!'
+    haml :updated
   end
 
   get /\/random(\/)?$/ do
