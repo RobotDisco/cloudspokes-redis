@@ -6,6 +6,7 @@ require File.join(File.dirname(__FILE__), '..', '..', 'lib/cloudspokes_redis_app
 
 require 'capybara'
 require 'capybara/cucumber'
+require 'json_spec/cucumber'
 require 'rspec'
 
 Capybara.app = CloudspokesRedisApp
@@ -18,4 +19,8 @@ end
 
 World do
   CloudspokesRedisAppWorld.new
+end
+
+def last_json
+  page.source
 end

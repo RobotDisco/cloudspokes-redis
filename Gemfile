@@ -8,5 +8,6 @@ group :test do
     gem 'rspec'
     gem 'cucumber'
     gem 'capybara'
+    gem 'json_spec'
 end
 

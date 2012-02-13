@@ -2,6 +2,7 @@ require File.join(File.dirname(__FILE__), '..', 'lib/cloudspokes_redis_app.rb')
 
 require 'sinatra'
 require 'rack/test'
+require 'json_spec'
 
 # setup test environment
 set :environment, :test
@@ -15,4 +16,8 @@ end
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+end
+
+RSpec.configure do |config|
+  config.include JsonSpec::Helpers
 end

@@ -22,6 +22,9 @@ GEM
     gherkin (2.7.7)
       json (>= 1.4.6)
     json (1.6.5)
+    json_spec (0.8.0)
+      multi_json (~> 1.0)
+      rspec (~> 2.0)
     mime-types (1.17.2)
     multi_json (1.0.4)
     nokogiri (1.5.0)
@@ -61,6 +64,7 @@ DEPENDENCIES
   capybara
   cucumber
   json
+  json_spec
   redis
   rspec
   sinatra
