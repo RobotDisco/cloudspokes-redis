@@ -6,3 +6,8 @@ Feature: Updating Kiva feeds
   Scenario: Update url exists
     Given I am on the update page
     Then I should see "updated your Kiva info"
+
+  Scenario: I can return to the main page
+    Given I am on the update page
+    When I follow "Back"
+    Then I should be on the home page
