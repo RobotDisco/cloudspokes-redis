@@ -27,14 +27,16 @@ class CloudspokesRedisApp < Sinatra::Base
     'I updated your Kiva info!!!'
   end
 
-  get /\/random(\/:numentries)?/ do |numentries|
-    redis = Redis.new
+  get /\/random(\/)?$/ do
+    get_random_loans 10
+  end
 
-    if numentries
-      numentries = numentries.to_i
-    else
-      numentries = 10
-    end
+  get '/random/:numentries' do |numentries|
+    get_random_loans numentries.to_i
+  end
+
+  def get_random_loans(numentries)
+    redis = Redis.new
 
     id_set = Set.new
 
