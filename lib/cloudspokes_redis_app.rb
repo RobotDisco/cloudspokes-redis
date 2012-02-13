@@ -35,21 +35,25 @@ class CloudspokesRedisApp < Sinatra::Base
     get_random_loans numentries.to_i
   end
 
-  def get_random_loans(numentries)
-    redis = Redis.new
+  helpers do
+    def get_random_loans(numentries)
+      redis = Redis.new
 
-    id_set = Set.new
+      id_set = Set.new
+      num_loans = redis.dbsize
+      while id_set.length < [numentries, num_loans].min
+        id_set << redis.randomkey
+      end
 
-    id_set << redis.randomkey while id_set.length < [numentries, redis.dbsize].min
+      loans = Array.new
+      id_set.each do |key|
+        loans.push JSON.parse(redis.get(key))
+      end
 
-    loans = Array.new
-    id_set.each do |key|
-      loans.push JSON.parse(redis.get(key))
+      feeds_json = Hash.new
+      feeds_json['loans'] = loans
+
+      feeds_json.to_json
     end
-
-    feeds_json = Hash.new
-    feeds_json['loans'] = loans
-
-    feeds_json.to_json
   end
 end
