@@ -6,10 +6,11 @@ require 'net/http'
 require 'json'
 require 'redis'
 require 'set'
+require 'haml'
 
 class CloudspokesRedisApp < Sinatra::Base
   get '/' do
-    'Hello Sailor!'
+    haml :index
   end
 
   get '/update' do
