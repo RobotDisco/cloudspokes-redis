@@ -36,6 +36,10 @@ class CloudspokesRedisApp < Sinatra::Base
     get_random_loans numentries.to_i
   end
 
+  get '/search' do
+    haml :search_results
+  end
+
   helpers do
     def get_random_loans(numentries)
       redis = Redis.new

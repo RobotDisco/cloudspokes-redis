@@ -8,3 +8,9 @@
         %a{:href => '/update'} Update from Kiva feed
       %li
         %a{:href => '/random'} Get 10 random loans
+    %h3 Search loans
+    %form#search{:method => 'get', :action => 'search'}
+      Keywords:
+      %input{:type => 'text', :name => 'keywords'}
+      %br
+      %input{:type => 'submit', :value => 'Search'}
